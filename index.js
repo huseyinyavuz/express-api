@@ -24,7 +24,7 @@ app.get('/', (req, res) => res.send('Getir Assignment'));
 
 app.use('/', apiRoutes);
 
-app.listen(port, function () {
+app.listen(3000, function () {
     console.log("Running Assignment on port " + port);
 });
 

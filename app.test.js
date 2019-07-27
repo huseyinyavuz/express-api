@@ -3,7 +3,7 @@ const app = require('./index');
 const request = require('supertest');
 
 describe('Dummy test', () => {
-    it('Hello World', async () => {
+    it('Hello World', async (done) => {
         const response = await request(app).get('/');
         console.log(response.text);
         expect(response.text).toEqual('Getir Assignment');
@@ -13,7 +13,7 @@ describe('Dummy test', () => {
 });
 
 describe('Post Request Tests', () => {
-    it('Post Request with valid data', async () => {
+    it('Post Request with valid data', async (done) => {
 
         var testRequest = { 
             "startDate": "2017-01-01", 
@@ -29,7 +29,7 @@ describe('Post Request Tests', () => {
     });
 
 
-    it('Post Request with missing data', async () => {
+    it('Post Request with missing data', async (done) => {
 
         var testRequest = {  
             "endDate": "2017-01-17", 
@@ -43,7 +43,7 @@ describe('Post Request Tests', () => {
         done();
     });
 
-    it('Post Request with invalid date', async () => {
+    it('Post Request with invalid date', async (done) => {
 
         var testRequest = {
             "startDate": "absbasbab",  
@@ -54,7 +54,6 @@ describe('Post Request Tests', () => {
 
         const response = await request(app).post('/').send(testRequest);
         expect(JSON.parse(response.text).code).toEqual(3);
-        expect(JSON.parse(response.text).records.length).toEqual(0);
         expect(response.statusCode).toEqual(400);
         done();
     });
