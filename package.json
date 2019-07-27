@@ -4,7 +4,8 @@
   "description": "Getir assignment app",
   "main": "index.js",
   "scripts": {
-    "test": "jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1"
+    "test": "jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1",
+    "start": "npm start"
   },
   "author": "Huseyin Yavuz",
   "license": "ISC",
